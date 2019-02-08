@@ -5,6 +5,7 @@ using namespace std;
 struct  PERSON {
     char  Name[20];
     float Balance; };
+void Display(char name[], int amount);
 
 int main()
 {
@@ -19,4 +20,13 @@ int main()
   }
   file.close();
   counter--;
+  PERSON account[counter];
+file.open("data.txt");
+
+  }
+}
+
+void Display(char name[], int amount)
+{
+  cout<<endl<<"hi";
 }
