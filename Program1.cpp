@@ -27,7 +27,7 @@ int main()
     }
     file.close();
     counter=(counter-1)/3;
-   
+
     //Input============
     PERSON P[counter];
     file.open("data.txt");
@@ -65,15 +65,24 @@ void FindRichest(PERSON P[],int size)
 {
     float topBalance=P[0].Balance;
     char richest[20];
-    for (int i=0;i<size;i++)
+
+    for (int i=1;i<size;i++)
     {
-        if(P[i+1].Balance>P[i].Balance)
+
+        if(topBalance<P[i].Balance)
         {
-            topBalance=P[i+1].Balance;
-            strcpy(richest,P[i+1].Name);
+            topBalance=P[i].Balance;
+            strcpy(richest,P[i].Name);
         }
+        if(topBalance==P[0].Balance)
+        {
+          strcpy(richest,P[0].Name);
+        }
+
     }
-    
+
+
+
     cout<<"The customer with maximum balance is "<<richest<<endl;
 }
 
@@ -91,7 +100,7 @@ void Deposit(string CustName,PERSON P[],int size)
             break;
         }
     }
-    
+
 }
 void NewCopy(string fileName, PERSON P[], int size)
 {
@@ -103,8 +112,7 @@ void NewCopy(string fileName, PERSON P[], int size)
         file<<P[i].Name<<" "<<fixed<<P[i].Balance<<endl;
         cout<<endl;
     }
-   
-    
-}
 
+
+}
 
